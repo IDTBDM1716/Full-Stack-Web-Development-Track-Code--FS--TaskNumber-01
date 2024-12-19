@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    ViewBag.Message = "Get in touch with us!";
+}
+
+<main aria-labelledby="title" class="container mt-5">
+    <!-- Page Title and Message -->
+    <div class="text-center">
+        <h2 id="title" class="display-4">@ViewBag.Title</h2>
+        <h3 class="text-muted">@ViewBag.Message</h3>
+    </div>
+
+    <!-- Contact Information -->
+    <section class="mt-4">
+        <div class="row">
+            <!-- Address Section -->
+            <div class="col-md-6">
+                <h4>Our Address</h4>
+                <address>
+                    <strong>Developer:</strong> Idossa Dhibissa<br />
+                    <strong>Location:</strong> Addis Ababa, Ethiopia<br />
+                    <strong>Email:</strong> <a href="mailto:idodawit@gmail.com">idodawit@gmail.com</a><br />
+                    <strong>Phone:</strong> +251917165193
+                </address>
+
+                <h4>Contact Emails</h4>
+                <address>
+                    <strong>Support:</strong> <a href="mailto:idodawit@gmail.com">idodawit@gmail.com</a><br />
+                    <strong>Marketing:</strong> <a href="mailto:idodawit@gmail.com">idodawit@gmail.com</a>
+                </address>
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="col-md-6">
+                <h4>Contact Us</h4>
+                <form id="contactForm" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required />
+                        <div class="invalid-feedback">
+                            Please provide your name.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required />
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Enter your message" required></textarea>
+                        <div class="invalid-feedback">
+                            Please enter a message.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+
+                <!-- Success Message -->
+                <div id="formSuccess" class="alert alert-success mt-3 d-none" role="alert">
+                    Thank you for contacting us! We'll get back to you soon.
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Responsive Footer -->
+<footer class="text-center mt-5 py-3 bg-light">
+    <p class="mb-0">
+        © 2024 Idossa Dhibissa. All rights reserved. Built with <a href="https://dotnet.microsoft.com/">ASP.NET</a>.
+        <br />
+        For inquiries, contact <a href="mailto:idodawit@gmail.com">idodawit@gmail.com</a> | Phone: +251917165193
+    </p>
+</footer>
+
+@section Scripts {
+    <script>
+        // JavaScript for Contact Form Validation and Interaction
+        (function () {
+            'use strict';
+
+            // Bootstrap validation
+            var form = document.getElementById('contactForm');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                // Validate form fields
+                if (form.checkValidity()) {
+                    // Show success message if form is valid
+                    document.getElementById("formSuccess").classList.remove("d-none");
+                    form.reset();  // Reset the form after successful submission
+                } else {
+                    form.classList.add('was-validated');
+                }
+            }, false);
+        })();
+    </script>
+}

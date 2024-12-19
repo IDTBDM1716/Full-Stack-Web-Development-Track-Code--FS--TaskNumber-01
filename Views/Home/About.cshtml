@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "About";
+    ViewBag.Message = "Learn more about our application.";
+}
+
+<main aria-labelledby="title" class="container mt-5">
+    <div class="text-center">
+        <h2 id="title" class="display-4">@ViewBag.Title</h2>
+        <h3 class="text-muted">@ViewBag.Message</h3>
+    </div>
+
+    <p class="text-justify mt-4">
+        Use this area to provide additional information about your application.
+        Click the button below to learn more interactively.
+    </p>
+
+    <!-- Interactive Section -->
+    <div class="text-center mt-4">
+        <button id="learnMoreBtn" class="btn btn-primary btn-lg">Learn More</button>
+    </div>
+
+    <!-- Hidden content for interactivity -->
+    <div id="interactiveContent" class="alert alert-info mt-4 d-none">
+        <p>This is additional information revealed interactively! You can use this space to highlight key details about your application.</p>
+        <button id="hideContentBtn" class="btn btn-secondary">Hide</button>
+    </div>
+</main>
+
+<!-- Responsive Footer -->
+<footer class="text-center mt-5 py-3 bg-light">
+    <p class="mb-0">© 2024 Your Company. All rights reserved.</p>
+</footer>
+
+@section Scripts {
+    <script>
+        // JavaScript for interactivity
+        document.getElementById("learnMoreBtn").addEventListener("click", function () {
+            const content = document.getElementById("interactiveContent");
+            content.classList.remove("d-none"); // Show hidden content
+            this.classList.add("d-none"); // Hide the "Learn More" button
+        });
+
+        document.getElementById("hideContentBtn").addEventListener("click", function () {
+            const content = document.getElementById("interactiveContent");
+            content.classList.add("d-none"); // Hide content
+            document.getElementById("learnMoreBtn").classList.remove("d-none"); // Show "Learn More" button again
+        });
+    </script>
+}
